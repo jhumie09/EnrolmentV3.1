@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="555c58c68fca4a9993b0d360cdcb9f97" Name="Diagram1">
+        <EntityTypeShape EntityType="enrollmentModel.batch" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.department" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.employeestatu" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.enrolledsubject" Width="1.5" PointX="10.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.faculty" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.gender" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.gradestatu" Width="1.5" PointX="8.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.opensubject" Width="1.5" PointX="8.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.room" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.section" Width="1.5" PointX="6" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.student" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.studentstatu" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.subject" Width="1.5" PointX="6" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.user" Width="1.5" PointX="11" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.usertype" Width="1.5" PointX="8.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="enrollmentModel.yearlevel" Width="1.5" PointX="3.75" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="enrollmentModel.fk_opensubject_batchid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_department" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_employementStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_enrolledsubject_gradestatusid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_enrolledsubject_opensubjectid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_enrolledsubject_studentid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_gender_faculty" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_opensubject_facultyid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_gender" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_opensubject_roomid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_opensubject_sectionid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_opensubject_subjectid" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_yearlevel" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_status" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_yearlevel_id" ManuallyRouted="false" />
+        <AssociationConnector Association="enrollmentModel.fk_usertype" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

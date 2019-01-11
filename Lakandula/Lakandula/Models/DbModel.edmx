@@ -1,0 +1,1133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="enrollmentModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="batch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="employeestatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="enrolledsubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="studentid" Type="int" Nullable="false" />
+          <Property Name="opensubjectid" Type="int" Nullable="false" />
+          <Property Name="firstgradinggrade" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="secondgradinggrade" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="thirdgradinggrade" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="fourthgradinggrade" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="finalgrade" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="gradestatusid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="faculty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="genderid" Type="int" Nullable="false" />
+          <Property Name="birthdate" Type="date" Nullable="false" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="empno" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="empstatusid" Type="int" Nullable="false" />
+          <Property Name="departmentId" Type="int" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="profilepic" Type="longblob" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gender" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gradestatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="opensubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="batchid" Type="int" Nullable="false" />
+          <Property Name="facultyid" Type="int" Nullable="false" />
+          <Property Name="roomid" Type="int" Nullable="false" />
+          <Property Name="sectionid" Type="int" Nullable="false" />
+          <Property Name="subjectid" Type="int" Nullable="false" />
+          <Property Name="starttime" Type="time" Precision="0" Nullable="false" />
+          <Property Name="endtime" Type="time" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="section">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="yearlevelid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="lrn" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="genderid" Type="int" Nullable="false" />
+          <Property Name="birthday" Type="date" Nullable="false" />
+          <Property Name="birthplace" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="citizenship" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="contact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fathername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fatheroccupation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mothername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="motheroccupation" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="guardian" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="guardiancontact" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="profilepic" Type="mediumblob" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="studentstatus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="yearlevelid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="45" />
+          <Property Name="username" Type="varchar" MaxLength="45" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="contact" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="45" />
+          <Property Name="profilepic" Type="longblob" />
+          <Property Name="usertypid" Type="int" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="code" Type="varchar" MaxLength="45" />
+          <Property Name="description" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="yearlevel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_department">
+          <End Role="department" Type="Self.department" Multiplicity="1" />
+          <End Role="faculty" Type="Self.faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="faculty">
+              <PropertyRef Name="departmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_employementStatus">
+          <End Role="employeestatus" Type="Self.employeestatus" Multiplicity="1" />
+          <End Role="faculty" Type="Self.faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeestatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="faculty">
+              <PropertyRef Name="empstatusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enrolledsubject_gradestatusid">
+          <End Role="gradestatus" Type="Self.gradestatus" Multiplicity="1" />
+          <End Role="enrolledsubject" Type="Self.enrolledsubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gradestatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="enrolledsubject">
+              <PropertyRef Name="gradestatusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enrolledsubject_opensubjectid">
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="1" />
+          <End Role="enrolledsubject" Type="Self.enrolledsubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="opensubject">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="enrolledsubject">
+              <PropertyRef Name="opensubjectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enrolledsubject_studentid">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="enrolledsubject" Type="Self.enrolledsubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="enrolledsubject">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gender">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gender_faculty">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="faculty" Type="Self.faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="faculty">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_batchid">
+          <End Role="batch" Type="Self.batch" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="batchid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_facultyid">
+          <End Role="faculty" Type="Self.faculty" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="faculty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="facultyid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_roomid">
+          <End Role="room" Type="Self.room" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="roomid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_sectionid">
+          <End Role="section" Type="Self.section" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="section">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="sectionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_subjectid">
+          <End Role="subject" Type="Self.subject" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="subjectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_status">
+          <End Role="studentstatus" Type="Self.studentstatus" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="studentstatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="usertypid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_yearlevel">
+          <End Role="yearlevel" Type="Self.yearlevel" Multiplicity="1" />
+          <End Role="section" Type="Self.section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yearlevel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="section">
+              <PropertyRef Name="yearlevelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_yearlevel_id">
+          <End Role="yearlevel" Type="Self.yearlevel" Multiplicity="1" />
+          <End Role="subject" Type="Self.subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yearlevel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subject">
+              <PropertyRef Name="yearlevelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="enrollmentModelStoreContainer">
+          <EntitySet Name="batch" EntityType="Self.batch" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="department" EntityType="Self.department" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="employeestatus" EntityType="Self.employeestatus" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="enrolledsubject" EntityType="Self.enrolledsubject" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="faculty" EntityType="Self.faculty" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="gender" EntityType="Self.gender" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="gradestatus" EntityType="Self.gradestatus" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="opensubject" EntityType="Self.opensubject" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="room" EntityType="Self.room" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="section" EntityType="Self.section" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="studentstatus" EntityType="Self.studentstatus" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="subject" EntityType="Self.subject" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="usertype" EntityType="Self.usertype" Schema="enrollment" store:Type="Tables" />
+          <EntitySet Name="yearlevel" EntityType="Self.yearlevel" Schema="enrollment" store:Type="Tables" />
+          <AssociationSet Name="fk_department" Association="Self.fk_department">
+            <End Role="department" EntitySet="department" />
+            <End Role="faculty" EntitySet="faculty" />
+          </AssociationSet>
+          <AssociationSet Name="fk_employementStatus" Association="Self.fk_employementStatus">
+            <End Role="employeestatus" EntitySet="employeestatus" />
+            <End Role="faculty" EntitySet="faculty" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enrolledsubject_gradestatusid" Association="Self.fk_enrolledsubject_gradestatusid">
+            <End Role="gradestatus" EntitySet="gradestatus" />
+            <End Role="enrolledsubject" EntitySet="enrolledsubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enrolledsubject_opensubjectid" Association="Self.fk_enrolledsubject_opensubjectid">
+            <End Role="opensubject" EntitySet="opensubject" />
+            <End Role="enrolledsubject" EntitySet="enrolledsubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enrolledsubject_studentid" Association="Self.fk_enrolledsubject_studentid">
+            <End Role="student" EntitySet="student" />
+            <End Role="enrolledsubject" EntitySet="enrolledsubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gender" Association="Self.fk_gender">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gender_faculty" Association="Self.fk_gender_faculty">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="faculty" EntitySet="faculty" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_batchid" Association="Self.fk_opensubject_batchid">
+            <End Role="batch" EntitySet="batch" />
+            <End Role="opensubject" EntitySet="opensubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_facultyid" Association="Self.fk_opensubject_facultyid">
+            <End Role="faculty" EntitySet="faculty" />
+            <End Role="opensubject" EntitySet="opensubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_roomid" Association="Self.fk_opensubject_roomid">
+            <End Role="room" EntitySet="room" />
+            <End Role="opensubject" EntitySet="opensubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_sectionid" Association="Self.fk_opensubject_sectionid">
+            <End Role="section" EntitySet="section" />
+            <End Role="opensubject" EntitySet="opensubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_subjectid" Association="Self.fk_opensubject_subjectid">
+            <End Role="subject" EntitySet="subject" />
+            <End Role="opensubject" EntitySet="opensubject" />
+          </AssociationSet>
+          <AssociationSet Name="fk_status" Association="Self.fk_status">
+            <End Role="studentstatus" EntitySet="studentstatus" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usertype" Association="Self.fk_usertype">
+            <End Role="usertype" EntitySet="usertype" />
+            <End Role="user" EntitySet="user" />
+          </AssociationSet>
+          <AssociationSet Name="fk_yearlevel" Association="Self.fk_yearlevel">
+            <End Role="yearlevel" EntitySet="yearlevel" />
+            <End Role="section" EntitySet="section" />
+          </AssociationSet>
+          <AssociationSet Name="fk_yearlevel_id" Association="Self.fk_yearlevel_id">
+            <End Role="yearlevel" EntitySet="yearlevel" />
+            <End Role="subject" EntitySet="subject" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="enrollmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="batch">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" />
+          <Property Name="end_date" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="opensubjects" Relationship="Self.fk_opensubject_batchid" FromRole="batch" ToRole="opensubject" />
+        </EntityType>
+        <EntityType Name="department">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="faculties" Relationship="Self.fk_department" FromRole="department" ToRole="faculty" />
+        </EntityType>
+        <EntityType Name="employeestatu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="faculties" Relationship="Self.fk_employementStatus" FromRole="employeestatus" ToRole="faculty" />
+        </EntityType>
+        <EntityType Name="enrolledsubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="studentid" Type="Int32" Nullable="false" />
+          <Property Name="opensubjectid" Type="Int32" Nullable="false" />
+          <Property Name="firstgradinggrade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secondgradinggrade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="thirdgradinggrade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fourthgradinggrade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="finalgrade" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gradestatusid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="gradestatu" Relationship="Self.fk_enrolledsubject_gradestatusid" FromRole="enrolledsubject" ToRole="gradestatus" />
+          <NavigationProperty Name="opensubject" Relationship="Self.fk_enrolledsubject_opensubjectid" FromRole="enrolledsubject" ToRole="opensubject" />
+          <NavigationProperty Name="student" Relationship="Self.fk_enrolledsubject_studentid" FromRole="enrolledsubject" ToRole="student" />
+        </EntityType>
+        <EntityType Name="faculty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genderid" Type="Int32" Nullable="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="empstatusid" Type="Int32" Nullable="false" />
+          <Property Name="departmentId" Type="Int32" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="profilepic" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="department" Relationship="Self.fk_department" FromRole="faculty" ToRole="department" />
+          <NavigationProperty Name="employeestatu" Relationship="Self.fk_employementStatus" FromRole="faculty" ToRole="employeestatus" />
+          <NavigationProperty Name="gender" Relationship="Self.fk_gender_faculty" FromRole="faculty" ToRole="gender" />
+          <NavigationProperty Name="opensubjects" Relationship="Self.fk_opensubject_facultyid" FromRole="faculty" ToRole="opensubject" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gender1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="faculties" Relationship="Self.fk_gender_faculty" FromRole="gender" ToRole="faculty" />
+          <NavigationProperty Name="students" Relationship="Self.fk_gender" FromRole="gender" ToRole="student" />
+        </EntityType>
+        <EntityType Name="gradestatu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="enrolledsubjects" Relationship="Self.fk_enrolledsubject_gradestatusid" FromRole="gradestatus" ToRole="enrolledsubject" />
+        </EntityType>
+        <EntityType Name="opensubject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="batchid" Type="Int32" Nullable="false" />
+          <Property Name="facultyid" Type="Int32" Nullable="false" />
+          <Property Name="roomid" Type="Int32" Nullable="false" />
+          <Property Name="sectionid" Type="Int32" Nullable="false" />
+          <Property Name="subjectid" Type="Int32" Nullable="false" />
+          <Property Name="starttime" Type="Time" Nullable="false" />
+          <Property Name="endtime" Type="Time" Nullable="false" />
+          <NavigationProperty Name="batch" Relationship="Self.fk_opensubject_batchid" FromRole="opensubject" ToRole="batch" />
+          <NavigationProperty Name="enrolledsubjects" Relationship="Self.fk_enrolledsubject_opensubjectid" FromRole="opensubject" ToRole="enrolledsubject" />
+          <NavigationProperty Name="faculty" Relationship="Self.fk_opensubject_facultyid" FromRole="opensubject" ToRole="faculty" />
+          <NavigationProperty Name="room" Relationship="Self.fk_opensubject_roomid" FromRole="opensubject" ToRole="room" />
+          <NavigationProperty Name="section" Relationship="Self.fk_opensubject_sectionid" FromRole="opensubject" ToRole="section" />
+          <NavigationProperty Name="subject" Relationship="Self.fk_opensubject_subjectid" FromRole="opensubject" ToRole="subject" />
+        </EntityType>
+        <EntityType Name="room">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="opensubjects" Relationship="Self.fk_opensubject_roomid" FromRole="room" ToRole="opensubject" />
+        </EntityType>
+        <EntityType Name="section">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yearlevelid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="opensubjects" Relationship="Self.fk_opensubject_sectionid" FromRole="section" ToRole="opensubject" />
+          <NavigationProperty Name="yearlevel" Relationship="Self.fk_yearlevel" FromRole="section" ToRole="yearlevel" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="lrn" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genderid" Type="Int32" Nullable="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" />
+          <Property Name="birthplace" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="citizenship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fathername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fatheroccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mothername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="motheroccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="guardian" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="guardiancontact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="profilepic" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="enrolledsubjects" Relationship="Self.fk_enrolledsubject_studentid" FromRole="student" ToRole="enrolledsubject" />
+          <NavigationProperty Name="gender" Relationship="Self.fk_gender" FromRole="student" ToRole="gender" />
+          <NavigationProperty Name="studentstatu" Relationship="Self.fk_status" FromRole="student" ToRole="studentstatus" />
+        </EntityType>
+        <EntityType Name="studentstatu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="students" Relationship="Self.fk_status" FromRole="studentstatus" ToRole="student" />
+        </EntityType>
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="yearlevelid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="opensubjects" Relationship="Self.fk_opensubject_subjectid" FromRole="subject" ToRole="opensubject" />
+          <NavigationProperty Name="yearlevel" Relationship="Self.fk_yearlevel_id" FromRole="subject" ToRole="yearlevel" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="contact" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="profilepic" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="usertypid" Type="Int32" />
+          <NavigationProperty Name="usertype" Relationship="Self.fk_usertype" FromRole="user" ToRole="usertype" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="code" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="users" Relationship="Self.fk_usertype" FromRole="usertype" ToRole="user" />
+        </EntityType>
+        <EntityType Name="yearlevel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="sections" Relationship="Self.fk_yearlevel" FromRole="yearlevel" ToRole="section" />
+          <NavigationProperty Name="subjects" Relationship="Self.fk_yearlevel_id" FromRole="yearlevel" ToRole="subject" />
+        </EntityType>
+        <Association Name="fk_opensubject_batchid">
+          <End Role="batch" Type="Self.batch" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="batch">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="batchid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_department">
+          <End Role="department" Type="Self.department" Multiplicity="1" />
+          <End Role="faculty" Type="Self.faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="department">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="faculty">
+              <PropertyRef Name="departmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_employementStatus">
+          <End Role="employeestatus" Type="Self.employeestatu" Multiplicity="1" />
+          <End Role="faculty" Type="Self.faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="employeestatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="faculty">
+              <PropertyRef Name="empstatusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enrolledsubject_gradestatusid">
+          <End Role="gradestatus" Type="Self.gradestatu" Multiplicity="1" />
+          <End Role="enrolledsubject" Type="Self.enrolledsubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gradestatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="enrolledsubject">
+              <PropertyRef Name="gradestatusid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enrolledsubject_opensubjectid">
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="1" />
+          <End Role="enrolledsubject" Type="Self.enrolledsubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="opensubject">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="enrolledsubject">
+              <PropertyRef Name="opensubjectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enrolledsubject_studentid">
+          <End Role="student" Type="Self.student" Multiplicity="1" />
+          <End Role="enrolledsubject" Type="Self.enrolledsubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="enrolledsubject">
+              <PropertyRef Name="studentid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gender_faculty">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="faculty" Type="Self.faculty" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="faculty">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_facultyid">
+          <End Role="faculty" Type="Self.faculty" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="faculty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="facultyid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_gender">
+          <End Role="gender" Type="Self.gender" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_roomid">
+          <End Role="room" Type="Self.room" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="room">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="roomid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_sectionid">
+          <End Role="section" Type="Self.section" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="section">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="sectionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_opensubject_subjectid">
+          <End Role="subject" Type="Self.subject" Multiplicity="1" />
+          <End Role="opensubject" Type="Self.opensubject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subject">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="opensubject">
+              <PropertyRef Name="subjectid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_yearlevel">
+          <End Role="yearlevel" Type="Self.yearlevel" Multiplicity="1" />
+          <End Role="section" Type="Self.section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yearlevel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="section">
+              <PropertyRef Name="yearlevelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_status">
+          <End Role="studentstatus" Type="Self.studentstatu" Multiplicity="1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="studentstatus">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_yearlevel_id">
+          <End Role="yearlevel" Type="Self.yearlevel" Multiplicity="1" />
+          <End Role="subject" Type="Self.subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="yearlevel">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="subject">
+              <PropertyRef Name="yearlevelid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_usertype">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="0..1" />
+          <End Role="user" Type="Self.user" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="user">
+              <PropertyRef Name="usertypid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="enrollmentEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="batches" EntityType="Self.batch" />
+          <EntitySet Name="departments" EntityType="Self.department" />
+          <EntitySet Name="employeestatus" EntityType="Self.employeestatu" />
+          <EntitySet Name="enrolledsubjects" EntityType="Self.enrolledsubject" />
+          <EntitySet Name="faculties" EntityType="Self.faculty" />
+          <EntitySet Name="genders" EntityType="Self.gender" />
+          <EntitySet Name="gradestatus" EntityType="Self.gradestatu" />
+          <EntitySet Name="opensubjects" EntityType="Self.opensubject" />
+          <EntitySet Name="rooms" EntityType="Self.room" />
+          <EntitySet Name="sections" EntityType="Self.section" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <EntitySet Name="studentstatus" EntityType="Self.studentstatu" />
+          <EntitySet Name="subjects" EntityType="Self.subject" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="usertypes" EntityType="Self.usertype" />
+          <EntitySet Name="yearlevels" EntityType="Self.yearlevel" />
+          <AssociationSet Name="fk_opensubject_batchid" Association="Self.fk_opensubject_batchid">
+            <End Role="batch" EntitySet="batches" />
+            <End Role="opensubject" EntitySet="opensubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_department" Association="Self.fk_department">
+            <End Role="department" EntitySet="departments" />
+            <End Role="faculty" EntitySet="faculties" />
+          </AssociationSet>
+          <AssociationSet Name="fk_employementStatus" Association="Self.fk_employementStatus">
+            <End Role="employeestatus" EntitySet="employeestatus" />
+            <End Role="faculty" EntitySet="faculties" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enrolledsubject_gradestatusid" Association="Self.fk_enrolledsubject_gradestatusid">
+            <End Role="gradestatus" EntitySet="gradestatus" />
+            <End Role="enrolledsubject" EntitySet="enrolledsubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enrolledsubject_opensubjectid" Association="Self.fk_enrolledsubject_opensubjectid">
+            <End Role="opensubject" EntitySet="opensubjects" />
+            <End Role="enrolledsubject" EntitySet="enrolledsubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enrolledsubject_studentid" Association="Self.fk_enrolledsubject_studentid">
+            <End Role="student" EntitySet="students" />
+            <End Role="enrolledsubject" EntitySet="enrolledsubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gender_faculty" Association="Self.fk_gender_faculty">
+            <End Role="gender" EntitySet="genders" />
+            <End Role="faculty" EntitySet="faculties" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_facultyid" Association="Self.fk_opensubject_facultyid">
+            <End Role="faculty" EntitySet="faculties" />
+            <End Role="opensubject" EntitySet="opensubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_gender" Association="Self.fk_gender">
+            <End Role="gender" EntitySet="genders" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_roomid" Association="Self.fk_opensubject_roomid">
+            <End Role="room" EntitySet="rooms" />
+            <End Role="opensubject" EntitySet="opensubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_sectionid" Association="Self.fk_opensubject_sectionid">
+            <End Role="section" EntitySet="sections" />
+            <End Role="opensubject" EntitySet="opensubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_opensubject_subjectid" Association="Self.fk_opensubject_subjectid">
+            <End Role="subject" EntitySet="subjects" />
+            <End Role="opensubject" EntitySet="opensubjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_yearlevel" Association="Self.fk_yearlevel">
+            <End Role="yearlevel" EntitySet="yearlevels" />
+            <End Role="section" EntitySet="sections" />
+          </AssociationSet>
+          <AssociationSet Name="fk_status" Association="Self.fk_status">
+            <End Role="studentstatus" EntitySet="studentstatus" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+          <AssociationSet Name="fk_yearlevel_id" Association="Self.fk_yearlevel_id">
+            <End Role="yearlevel" EntitySet="yearlevels" />
+            <End Role="subject" EntitySet="subjects" />
+          </AssociationSet>
+          <AssociationSet Name="fk_usertype" Association="Self.fk_usertype">
+            <End Role="usertype" EntitySet="usertypes" />
+            <End Role="user" EntitySet="users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="enrollmentModelStoreContainer" CdmEntityContainer="enrollmentEntities">
+          <EntitySetMapping Name="batches">
+            <EntityTypeMapping TypeName="enrollmentModel.batch">
+              <MappingFragment StoreEntitySet="batch">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="departments">
+            <EntityTypeMapping TypeName="enrollmentModel.department">
+              <MappingFragment StoreEntitySet="department">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="employeestatus">
+            <EntityTypeMapping TypeName="enrollmentModel.employeestatu">
+              <MappingFragment StoreEntitySet="employeestatus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="enrolledsubjects">
+            <EntityTypeMapping TypeName="enrollmentModel.enrolledsubject">
+              <MappingFragment StoreEntitySet="enrolledsubject">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="studentid" ColumnName="studentid" />
+                <ScalarProperty Name="opensubjectid" ColumnName="opensubjectid" />
+                <ScalarProperty Name="firstgradinggrade" ColumnName="firstgradinggrade" />
+                <ScalarProperty Name="secondgradinggrade" ColumnName="secondgradinggrade" />
+                <ScalarProperty Name="thirdgradinggrade" ColumnName="thirdgradinggrade" />
+                <ScalarProperty Name="fourthgradinggrade" ColumnName="fourthgradinggrade" />
+                <ScalarProperty Name="finalgrade" ColumnName="finalgrade" />
+                <ScalarProperty Name="gradestatusid" ColumnName="gradestatusid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="faculties">
+            <EntityTypeMapping TypeName="enrollmentModel.faculty">
+              <MappingFragment StoreEntitySet="faculty">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="genderid" ColumnName="genderid" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="empno" ColumnName="empno" />
+                <ScalarProperty Name="empstatusid" ColumnName="empstatusid" />
+                <ScalarProperty Name="departmentId" ColumnName="departmentId" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="profilepic" ColumnName="profilepic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="genders">
+            <EntityTypeMapping TypeName="enrollmentModel.gender">
+              <MappingFragment StoreEntitySet="gender">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gender1" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gradestatus">
+            <EntityTypeMapping TypeName="enrollmentModel.gradestatu">
+              <MappingFragment StoreEntitySet="gradestatus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="opensubjects">
+            <EntityTypeMapping TypeName="enrollmentModel.opensubject">
+              <MappingFragment StoreEntitySet="opensubject">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="batchid" ColumnName="batchid" />
+                <ScalarProperty Name="facultyid" ColumnName="facultyid" />
+                <ScalarProperty Name="roomid" ColumnName="roomid" />
+                <ScalarProperty Name="sectionid" ColumnName="sectionid" />
+                <ScalarProperty Name="subjectid" ColumnName="subjectid" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rooms">
+            <EntityTypeMapping TypeName="enrollmentModel.room">
+              <MappingFragment StoreEntitySet="room">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sections">
+            <EntityTypeMapping TypeName="enrollmentModel.section">
+              <MappingFragment StoreEntitySet="section">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="yearlevelid" ColumnName="yearlevelid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="enrollmentModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="lrn" ColumnName="lrn" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="genderid" ColumnName="genderid" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="birthplace" ColumnName="birthplace" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="citizenship" ColumnName="citizenship" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="fathername" ColumnName="fathername" />
+                <ScalarProperty Name="fatheroccupation" ColumnName="fatheroccupation" />
+                <ScalarProperty Name="mothername" ColumnName="mothername" />
+                <ScalarProperty Name="motheroccupation" ColumnName="motheroccupation" />
+                <ScalarProperty Name="guardian" ColumnName="guardian" />
+                <ScalarProperty Name="guardiancontact" ColumnName="guardiancontact" />
+                <ScalarProperty Name="profilepic" ColumnName="profilepic" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="studentstatus">
+            <EntityTypeMapping TypeName="enrollmentModel.studentstatu">
+              <MappingFragment StoreEntitySet="studentstatus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subjects">
+            <EntityTypeMapping TypeName="enrollmentModel.subject">
+              <MappingFragment StoreEntitySet="subject">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="yearlevelid" ColumnName="yearlevelid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="enrollmentModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="contact" ColumnName="contact" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="profilepic" ColumnName="profilepic" />
+                <ScalarProperty Name="usertypid" ColumnName="usertypid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertypes">
+            <EntityTypeMapping TypeName="enrollmentModel.usertype">
+              <MappingFragment StoreEntitySet="usertype">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="yearlevels">
+            <EntityTypeMapping TypeName="enrollmentModel.yearlevel">
+              <MappingFragment StoreEntitySet="yearlevel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
